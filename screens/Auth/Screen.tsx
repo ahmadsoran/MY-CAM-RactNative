@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { MotiView } from "moti";
-import { SafeAreaView, StyleSheet } from "react-native";
-import { View } from "../../components/Themed";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import AuthHeader from "./Header";
+import AuthMain from "./Main";
 
 export default function AuthScreen() {
   return (
@@ -12,6 +11,7 @@ export default function AuthScreen() {
         <View style={styles.wrapper}>
           <AuthHeader />
         </View>
+        <AuthMain />
       </SafeAreaView>
     </View>
   );

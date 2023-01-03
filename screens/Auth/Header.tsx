@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "dm-sans",
     fontSize: 16,
+    color: "gray",
   },
   link: {
     color: "blue",
