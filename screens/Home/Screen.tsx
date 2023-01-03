@@ -1,8 +1,5 @@
-import CameraView from "./Camera-view";
-type Props = {};
-
-const HomeScreen = (props: Props) => {
-  return <CameraView />;
+const HomeScreen = () => {
+  return <></>;
 };
 
 export default HomeScreen;

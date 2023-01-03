@@ -16,6 +16,7 @@ import { ColorSchemeName, Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import AuthScreen from "../screens/Auth/Screen";
 import HomeScreen from "../screens/Home/Screen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import {
@@ -73,7 +74,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Auth"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarStyle: {
@@ -82,13 +83,13 @@ function BottomTabNavigator() {
         },
       }}>
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={({ navigation }: RootTabScreenProps<"Home">) => ({
-          title: "Home",
+        name="Auth"
+        component={AuthScreen}
+        options={({ navigation }: RootTabScreenProps<"Auth">) => ({
           tabBarIcon: ({ color }) => <TabBarIcon name="camera" color={color} />,
           headerShown: false,
           tabBarShowLabel: false,
+          headerTransparent: true,
         })}
       />
     </BottomTab.Navigator>

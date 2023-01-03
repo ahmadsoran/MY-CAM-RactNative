@@ -1,0 +1,41 @@
+import { Link } from "@react-navigation/native";
+import { Icon } from "@rneui/themed";
+import { StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native";
+import { Text, View } from "../../components/Themed";
+
+const AuthHeader = () => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={{ backgroundColor: "transparent" }}>
+        <Icon name="close" color="gray" />
+      </TouchableOpacity>
+
+      <Text style={styles.text}>
+        Already have an account?{" "}
+        <Link style={styles.link} to={"/home"}>
+          Sign in
+        </Link>
+      </Text>
+    </View>
+  );
+};
+
+export default AuthHeader;
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "transparent",
+    flexDirection: "row",
+  },
+  text: {
+    fontFamily: "dm-sans",
+    fontSize: 16,
+  },
+  link: {
+    color: "blue",
+  },
+});

@@ -15,7 +15,9 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...FontAwesome.font,
-          "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
+          "dm-sans": require("../assets/fonts/DMSans-Regular.ttf"),
+          "dm-sans-bold": require("../assets/fonts/DMSans-Bold.ttf"),
+          "dm-sans-med": require("../assets/fonts/DMSans-Regular.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
