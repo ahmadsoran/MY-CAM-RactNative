@@ -1,6 +1,7 @@
 import { AnimatePresence, View } from "moti";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
+import { useId } from "react";
 
 type Props = {
   show: boolean;
@@ -13,10 +14,13 @@ export const SuccesInputCheckerAnimatedIcon = ({
   size,
   color,
 }: Props) => {
+  const id = useId();
+  console.log(id);
   return (
-    <AnimatePresence>
+    <>
       {show && (
         <View
+          key={id}
           from={{
             scale: 0,
             opacity: 0,
@@ -36,6 +40,6 @@ export const SuccesInputCheckerAnimatedIcon = ({
           />
         </View>
       )}
-    </AnimatePresence>
+    </>
   );
 };
