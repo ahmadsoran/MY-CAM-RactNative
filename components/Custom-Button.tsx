@@ -2,14 +2,15 @@ import { Button, ButtonProps } from "@rneui/base";
 import Colors from "../constants/Colors";
 type BtnProp = {
   text: string;
+  bg?: string;
 };
 type Props = BtnProp & ButtonProps;
 const CustomButton = (Props: Props) => {
-  const { text } = Props;
+  const { text, bg } = Props;
   return (
     <Button
       buttonStyle={{
-        backgroundColor: Colors.light.primary,
+        backgroundColor: bg ? bg : Colors.light.primary,
         padding: "5%",
         borderRadius: 10,
       }}
