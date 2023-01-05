@@ -13,7 +13,7 @@ const AuthHeader = () => {
 
       <Text style={styles.text}>
         Already have an account?{" "}
-        <Link style={styles.link} to={"/home"}>
+        <Link style={styles.link} to={"/sign-in"}>
           Sign in
         </Link>
       </Text>
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     flexDirection: "row",
     padding: 30,
+    marginTop: "10%",
   },
   text: {
     fontFamily: "dm-sans",

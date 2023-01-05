@@ -1,37 +1,50 @@
-import {
-  NativeSyntheticEvent,
-  StyleSheet,
-  TextInputEndEditingEventData,
-} from "react-native";
+import { StyleSheet } from "react-native";
 import ScreenSheet from "../../components/ScreenSheet";
 import AvatarIcon from "../../assets/images/wallet.png";
+import SignalRicon from "../../assets/images/SignalR.png";
 import { Text } from "../../components/Themed";
 import CustomButton from "../../components/Custom-Button";
-import MyInput from "../../components/Input";
-import { AntDesign, Feather, FontAwesome5 } from "@expo/vector-icons";
-import { useRef, useState } from "react";
-import { UserRegisterInfo } from "../../@types/UserRegisterInput";
-import Colors from "../../constants/Colors";
 import SignUp from "../../components/Auth/Sign-up";
+import { UserRegisterStore } from "../../States/Auth/Signup/Inputs";
+import { SetToStorage } from "../../hooks/AsyncStorage";
+import IDentify from "../../components/Auth/iDentify";
+import { ShowOnboardingStore } from "../../States/onboarding/ShowOnboarding";
 
 const AuthMain = () => {
-  const [UserInfo, setUserInfo] = useState<UserRegisterInfo>({
-    brd: "",
-    city: "",
-    confirmPassword: "",
-    email: "",
-    gendar: "",
-    name: "",
-    password: "",
-    username: "",
-  });
-  console.log(UserInfo);
+  const UserRegisterData = JSON.stringify(
+    UserRegisterStore((state) => {
+      return {
+        brd: state.brd,
+        city: state.city,
+        confirmPassword: state.confirmPassword,
+        password: state.password,
+        email: state.email,
+        gendar: state.gendar,
+        name: state.name,
+      };
+    })
+  );
+  const Step = ShowOnboardingStore((state) => state.setps);
+  const setStep = ShowOnboardingStore((state) => state.setSteps);
+  const UploadDataHandelr = () => {
+    if (Step === "2") {
+      SetToStorage("user-data", UserRegisterData);
+      setStep("3");
+    }
+  };
   return (
     <ScreenSheet
-      AvatarImage={AvatarIcon}
-      FooterComponents={<CustomButton text="Next" />}>
-      <Text style={styles.headerText}>Getting Started</Text>
-      <SignUp />
+      AvatarImage={Step === "2" ? AvatarIcon : SignalRicon}
+      FooterComponents={
+        <CustomButton onPress={UploadDataHandelr} text="Next" />
+      }>
+      <Text style={styles.headerText}>
+        {Step === "2" ? "Getting Started" : "Almost There!"}
+      </Text>
+      {Step === "2" && (
+        <Text style={styles.Description}>Create an account to continue!</Text>
+      )}
+      {Step === "3" ? <IDentify /> : <SignUp />}
     </ScreenSheet>
   );
 };
@@ -43,7 +56,14 @@ const styles = StyleSheet.create({
     fontFamily: "dm-sans-bold",
     color: "black",
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 25,
     textAlign: "center",
+    top: "-3%",
+  },
+  Description: {
+    fontSize: 14,
+    color: "gray",
+    textAlign: "center",
+    top: "-2%",
   },
 });

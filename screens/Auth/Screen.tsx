@@ -1,4 +1,3 @@
-import { BlurView } from "expo-blur";
 import { StatusBar } from "expo-status-bar";
 import {
   KeyboardAvoidingView,
@@ -15,19 +14,17 @@ export default function AuthScreen() {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <SafeAreaView>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "position" : "height"}
-          keyboardVerticalOffset={Platform.OS === "ios" ? 30 : 0}>
-          <ScrollView
-            stickyHeaderIndices={[0]}
-            stickyHeaderHiddenOnScroll={true}
-            invertStickyHeaders={true}>
-            <AuthHeader />
-            <AuthMain />
-          </ScrollView>
-        </KeyboardAvoidingView>
-      </SafeAreaView>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "position" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 30 : 0}>
+        <ScrollView
+          stickyHeaderIndices={[0]}
+          stickyHeaderHiddenOnScroll={true}
+          invertStickyHeaders={true}>
+          <AuthHeader />
+          <AuthMain />
+        </ScrollView>
+      </KeyboardAvoidingView>
     </View>
   );
 }
