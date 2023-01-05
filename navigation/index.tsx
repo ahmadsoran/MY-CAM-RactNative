@@ -15,10 +15,14 @@ import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
+import { GetFromStorage } from "../hooks/AsyncStorage";
 import useColorScheme from "../hooks/useColorScheme";
 import AuthScreen from "../screens/Auth/Screen";
-import HomeScreen from "../screens/Home/Screen";
+import HomeRootScreen from "../screens/Home/Screen";
+import CameraModal from "../screens/Modal/CameraModal";
 import NotFoundScreen from "../screens/NotFoundScreen";
+import OnboardingScreen from "../screens/onboarding/Screen";
+import { ShowOnboardingStore } from "../States/onboarding/ShowOnboarding";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -47,8 +51,24 @@ export default function Navigation({
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
+  const showOnboarding = ShowOnboardingStore((state) => state.show);
+  const setShowOnboarding = ShowOnboardingStore((state) => state.setShow);
+
+  React.useEffect(() => {
+    GetFromStorage("Onboard-completed").then((res) => {
+      if (res) {
+        setShowOnboarding(false);
+      }
+    });
+  }, []);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName={showOnboarding ? "Onboarding" : "Root"}>
+      <Stack.Screen
+        name="Onboarding"
+        component={OnboardingScreen}
+        options={{ headerShown: false }}
+      />
+
       <Stack.Screen
         name="Root"
         component={BottomTabNavigator}
@@ -59,6 +79,23 @@ function RootNavigator() {
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
+      <Stack.Group screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Auth" component={AuthScreen}></Stack.Screen>
+      </Stack.Group>
+      <Stack.Group
+        screenOptions={{
+          presentation: "modal",
+          headerStyle: { backgroundColor: "#fffffff3" },
+        }}>
+        <Stack.Screen
+          name="CameraModal"
+          options={{
+            title: "Identiﬁcation",
+            headerTitleAlign: "center",
+            headerTitleStyle: { color: Colors.light.primary },
+          }}
+          component={CameraModal}></Stack.Screen>
+      </Stack.Group>
     </Stack.Navigator>
   );
 }
@@ -74,7 +111,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Auth"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarStyle: {
@@ -84,9 +121,9 @@ function BottomTabNavigator() {
         tabBarHideOnKeyboard: true,
       }}>
       <BottomTab.Screen
-        name="Auth"
-        component={AuthScreen}
-        options={({ navigation }: RootTabScreenProps<"Auth">) => ({
+        name="Home"
+        component={HomeRootScreen}
+        options={({ navigation }: RootTabScreenProps<"Home">) => ({
           tabBarIcon: ({ color }) => <TabBarIcon name="camera" color={color} />,
           headerShown: false,
           tabBarShowLabel: false,
