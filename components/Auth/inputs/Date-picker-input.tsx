@@ -1,12 +1,11 @@
 import timeConverter from "../../../util/TimeConverter";
 import { UserRegisterStore } from "../../../States/Auth/Signup/Inputs";
 import { Pressable, StyleSheet, TouchableOpacity } from "react-native";
-import MyInput from "../../Input";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Colors from "../../../constants/Colors";
-import { Text } from "../../Themed";
+import { Text, View } from "../../Themed";
 
 export default function DatePickerInput() {
   const setBrd = UserRegisterStore((state) => state.setBrd);
@@ -21,7 +20,8 @@ export default function DatePickerInput() {
     setShowDate(!ShowDate);
   };
   return (
-    <>
+    <View style={styles.DateContainer}>
+      <Text style={styles.label}>Date Of Birth</Text>
       <Pressable style={styles.dateInput} onPress={ShowDateHandler}>
         <MaterialIcons name="date-range" size={20} color={"#80808081"} />
         <Text style={styles.text}>{Brd ? Brd : "Select Date"}</Text>
@@ -35,11 +35,11 @@ export default function DatePickerInput() {
           ShowDateHandler();
         }}
         isDarkModeEnabled={false}
-        textColor={Colors.light.primary}
+        textColor={Colors.light.text}
         maximumDate={new Date(Date.now())}
         minimumDate={new Date(1930, 1, 1)}
       />
-    </>
+    </View>
   );
 }
 
@@ -55,9 +55,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#f4f5f7",
     padding: 10,
     borderRadius: 10,
-    marginHorizontal: 10,
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
+  },
+  DateContainer: {
+    padding: 10,
+    backgroundColor: "transparent",
+  },
+  label: {
+    opacity: 0.6,
+    fontFamily: "dm-sans",
+    fontSize: 15,
+    marginVertical: 10,
+    color: "gray",
   },
 });
