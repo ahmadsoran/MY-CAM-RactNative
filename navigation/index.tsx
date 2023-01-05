@@ -81,6 +81,7 @@ function BottomTabNavigator() {
           backgroundColor: "black",
           borderTopColor: "black",
         },
+        tabBarHideOnKeyboard: true,
       }}>
       <BottomTab.Screen
         name="Auth"
