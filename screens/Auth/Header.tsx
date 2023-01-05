@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "transparent",
     flexDirection: "row",
+    padding: 30,
   },
   text: {
     fontFamily: "dm-sans",
