@@ -13,15 +13,22 @@ const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.createURL("/")],
   config: {
     screens: {
+      Onboarding: "on-boarding",
       Root: {
         screens: {
-          Auth: {
-            screens: "Auth",
+          Home: {
+            screens: "Home",
           },
         },
       },
-      Modal: "modal",
+      CameraModal: "cam-modal",
       NotFound: "*",
+      Auth: {
+        screens: {
+          SginUp: "SignUp",
+          SginIn: "Signin",
+        },
+      },
     },
   },
 };
