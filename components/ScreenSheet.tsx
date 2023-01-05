@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 35,
     marginTop: 25,
     padding: "5%",
-    height: "100%",
+    height: "120%",
   },
   AvatarContainer: {
     width: "100%",

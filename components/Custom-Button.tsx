@@ -1,5 +1,4 @@
 import { Button, ButtonProps } from "@rneui/base";
-import { StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
 type BtnProp = {
   text: string;
