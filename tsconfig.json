@@ -3,6 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "noImplicitAny": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022"
   }
 }
