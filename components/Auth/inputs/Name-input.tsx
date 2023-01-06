@@ -24,6 +24,7 @@ const NameInput = () => {
       label="Full Name"
       onEndEditing={inputHandler}
       spellCheck={false}
+      keyboardAppearance="light"
     />
   );
 };

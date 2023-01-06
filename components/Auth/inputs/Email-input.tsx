@@ -5,12 +5,11 @@ import {
   NativeSyntheticEvent,
   TextInputEndEditingEventData,
 } from "react-native";
-import { useEffect } from "react";
-import * as Haptic from "expo-haptics";
+
 import { SuccesInputCheckerAnimatedIcon } from "../../Succes-input-checker-animated";
 const EmailInput = () => {
-  const Email = UserRegisterStore((state) => state.email);
   const setEmail = UserRegisterStore((state) => state.setEmail);
+  const Email = UserRegisterStore((state) => state.email);
   const EmailErr = Email.length > 0 && !Email.includes("@" && ".");
   const EmailSuccess = Email.includes("@" && ".");
   const inputHandler = (
@@ -19,12 +18,6 @@ const EmailInput = () => {
     const { text } = e.nativeEvent;
     setEmail(text);
   };
-  useEffect(() => {
-    if (EmailErr)
-      Haptic.notificationAsync(Haptic?.NotificationFeedbackType?.Error);
-    else if (EmailSuccess)
-      Haptic.notificationAsync(Haptic?.NotificationFeedbackType?.Success);
-  }, [Email]);
 
   return (
     <MyInput
@@ -35,6 +28,7 @@ const EmailInput = () => {
       keyboardType="email-address"
       rightIcon={<SuccesInputCheckerAnimatedIcon show={EmailSuccess} />}
       errorMessage={EmailErr ? "invaild email" : ""}
+      keyboardAppearance="light"
     />
   );
 };

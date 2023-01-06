@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { RemoveFromStorage } from "../../hooks/AsyncStorage";
+import { RootStackScreenProps } from "../../types";
 
 export default function HomeRootScreen() {
   return (

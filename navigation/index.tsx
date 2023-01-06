@@ -17,6 +17,7 @@ import { ColorSchemeName, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import { GetFromStorage } from "../hooks/AsyncStorage";
 import useColorScheme from "../hooks/useColorScheme";
+import OTPScreen from "../screens/Auth/OTP/Screen";
 import AuthScreen from "../screens/Auth/Screen";
 import HomeRootScreen from "../screens/Home/Screen";
 import CameraModal from "../screens/Modal/CameraModal";
@@ -78,6 +79,11 @@ function RootNavigator() {
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
+      />
+      <Stack.Screen
+        name="OTP"
+        component={OTPScreen}
+        options={{ headerShown: false }}
       />
       <Stack.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Auth" component={AuthScreen}></Stack.Screen>

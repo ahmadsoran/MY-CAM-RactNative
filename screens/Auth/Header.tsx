@@ -1,10 +1,15 @@
-import { Link } from "@react-navigation/native";
 import { Icon } from "@rneui/themed";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Text, View } from "../../components/Themed";
+import UserAccStatusStore from "../../States/Auth/AccountStatus";
 
 const AuthHeader = () => {
+  const setUserAccountStatus = UserAccStatusStore((state) => state.setStatus);
+
+  const StatusHandler = () => {
+    setUserAccountStatus("sign-in");
+  };
   return (
     <View style={styles.container}>
       <TouchableOpacity style={{ backgroundColor: "transparent" }}>
@@ -13,9 +18,9 @@ const AuthHeader = () => {
 
       <Text style={styles.text}>
         Already have an account?{" "}
-        <Link style={styles.link} to={"/sign-in"}>
+        <Text style={styles.link} onPress={StatusHandler}>
           Sign in
-        </Link>
+        </Text>
       </Text>
     </View>
   );

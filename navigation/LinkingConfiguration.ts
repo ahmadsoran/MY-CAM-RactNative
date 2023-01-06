@@ -23,12 +23,8 @@ const linking: LinkingOptions<RootStackParamList> = {
       },
       CameraModal: "cam-modal",
       NotFound: "*",
-      Auth: {
-        screens: {
-          SginUp: "SignUp",
-          SginIn: "Signin",
-        },
-      },
+      Auth: "Auth",
+      OTP: "OTP",
     },
   },
 };

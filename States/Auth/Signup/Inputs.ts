@@ -1,5 +1,5 @@
 import create from "zustand";
-import { UserRegisterInfo } from "../../../@types/UserRegisterInput";
+import { UserRegisterInfo } from "../../../@types/UserCredintal";
 
 interface State extends UserRegisterInfo {
   setName(data: string): void;
