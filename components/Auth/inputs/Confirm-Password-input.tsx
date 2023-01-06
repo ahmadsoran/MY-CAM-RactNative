@@ -52,6 +52,7 @@ const ConfirmPasswordInput = () => {
           : "Passowrds not matched!"
       }
       secureTextEntry
+      keyboardAppearance="light"
     />
   );
 };
