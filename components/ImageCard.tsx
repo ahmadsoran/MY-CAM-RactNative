@@ -6,8 +6,10 @@ import {
   Text,
   TextStyle,
   View,
+  ViewStyle,
 } from "react-native";
 import Colors from "../constants/Colors";
+import Layout from "../constants/Layout";
 
 type Props = {
   Rounded?: number;
@@ -17,17 +19,19 @@ type Props = {
   textStyle?: TextStyle;
   title?: string;
   Child?: React.ReactNode;
+  styles?: ViewStyle;
 };
 
 const ImageCard = (props: Props) => {
   return (
-    <View>
+    <View style={styles.parent}>
       <View
         style={[
           styles.container,
           {
             borderRadius: props.Rounded,
           },
+          { ...props.styles },
         ]}>
         <Image
           style={{
@@ -56,15 +60,19 @@ const ImageCard = (props: Props) => {
 export default ImageCard;
 
 const styles = StyleSheet.create({
+  parent: {
+    width: Layout.window.width / 4,
+  },
+
   container: {
     padding: "5%",
     backgroundColor: "whitesmoke",
     borderRadius: 10,
-    // width: "100%",
+    width: "100%",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    margin: 10,
+    marginVertical: 10,
   },
   text: {
     marginTop: "10%",
