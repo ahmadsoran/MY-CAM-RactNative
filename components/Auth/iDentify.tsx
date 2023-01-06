@@ -10,6 +10,7 @@ import { useState } from "react";
 import { SuccesInputCheckerAnimatedIcon } from "../Succes-input-checker-animated";
 import { useNavigation } from "@react-navigation/native";
 import { imageLibraryStore } from "../../States/Modal/ImageLibarary";
+import Layout from "../../constants/Layout";
 
 const IDentify = () => {
   const ImageUrlOne = imageLibraryStore((state) => state.imageUrlOne);
@@ -31,8 +32,8 @@ const IDentify = () => {
       <View style={styles.IDentifyContainerCards}>
         <ImageCard
           imageSrc={ImageUrlOne ? { uri: ImageUrlOne } : front_obj_icon}
-          imageHeight={77}
-          imageWidth={77}
+          imageHeight={Layout.window.width / 5}
+          imageWidth={Layout.window.width / 5}
           title="Front"
           Rounded={10}
           Child={
@@ -54,7 +55,6 @@ const IDentify = () => {
               }
               buttonStyle={{
                 backgroundColor: ImageUrlOne ? "#dcffd9" : "whitesmoke",
-                marginHorizontal: 10,
               }}
               radius={10}
               onPress={() => UploadButtonHandelr("one")}
@@ -63,8 +63,8 @@ const IDentify = () => {
         />
         <ImageCard
           imageSrc={ImageUrlTwo ? { uri: ImageUrlTwo } : right_obj_icon}
-          imageHeight={77}
-          imageWidth={77}
+          imageHeight={Layout.window.width / 5}
+          imageWidth={Layout.window.width / 5}
           title="Right side"
           Rounded={10}
           Child={
@@ -86,7 +86,6 @@ const IDentify = () => {
               }
               buttonStyle={{
                 backgroundColor: ImageUrlTwo ? "#dcffd9" : "whitesmoke",
-                marginHorizontal: 10,
               }}
               radius={10}
               onPress={() => UploadButtonHandelr("two")}
@@ -95,8 +94,8 @@ const IDentify = () => {
         />
         <ImageCard
           imageSrc={ImageUrlThree ? { uri: ImageUrlThree } : left_obj_icon}
-          imageHeight={77}
-          imageWidth={77}
+          imageHeight={Layout.window.width / 5}
+          imageWidth={Layout.window.width / 5}
           title="Left side"
           Rounded={10}
           Child={
@@ -118,7 +117,6 @@ const IDentify = () => {
               }
               buttonStyle={{
                 backgroundColor: ImageUrlThree ? "#dcffd9" : "whitesmoke",
-                marginHorizontal: 10,
               }}
               radius={10}
               onPress={() => UploadButtonHandelr("three")}
@@ -150,6 +148,6 @@ const styles = StyleSheet.create({
   IDentifyContainerCards: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
   },
 });
