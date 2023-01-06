@@ -22,14 +22,11 @@ const Documentation = () => {
   const UploadButtonHandelr = async (data: "pass" | "id") => {
     const res = await pickImageAsync();
     if (res && data === "id") {
-      console.log(res);
-
       setDocuments((prv) => ({
         ...prv,
         ID: true,
       }));
     } else if (res && data === "pass") {
-      console.log("first");
       setDocuments((prv) => ({
         ...prv,
         passport: true,

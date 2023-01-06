@@ -18,9 +18,7 @@ const SignUp = (props: Props) => {
   const setCity = UserRegisterStore((state) => state.setCity);
   const setGendar = UserRegisterStore((state) => state.setGendar);
   const city = UserRegisterStore((state) => state.city);
-  console.log("🚀 ~ file: Sign-up.tsx:20 ~ SignUp ~ city", city);
   const gendar = UserRegisterStore((state) => state.gendar);
-  console.log("🚀 ~ file: Sign-up.tsx:22 ~ SignUp ~ gendar", gendar);
 
   return (
     <>

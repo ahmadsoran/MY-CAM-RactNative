@@ -15,7 +15,6 @@ const NameInput = () => {
     const { text } = e.nativeEvent;
     setName(text);
   };
-  console.log(Name);
   return (
     <MyInput
       leftIcon={

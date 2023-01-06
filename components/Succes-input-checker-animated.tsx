@@ -15,7 +15,6 @@ export const SuccesInputCheckerAnimatedIcon = ({
   color,
 }: Props) => {
   const id = useId();
-  console.log(id);
   return (
     <>
       {show && (
