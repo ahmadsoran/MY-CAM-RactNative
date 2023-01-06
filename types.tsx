@@ -21,7 +21,8 @@ export type RootStackParamList = {
   Onboarding: undefined;
   CameraModal: undefined;
   NotFound: undefined;
-  Auth: NavigatorScreenParams<AuthParamList> | undefined;
+  Auth: undefined;
+  OTP: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -29,11 +30,6 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
 
 export type RootTabParamList = {
   Home: undefined;
-};
-
-export type AuthParamList = {
-  SginUp: undefined;
-  SginIn: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
