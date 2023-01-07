@@ -20,7 +20,9 @@ export default function HomeRootScreen({
       <StatusBar style="dark" />
       <ScrollView scrollEnabled fadingEdgeLength={20}>
         <View style={styles.container}>
-          <GradientCard username={userData?.name} />
+          <GradientCard
+            username={userData?.name ? userData?.name : "Saman Saman"}
+          />
           <SendReciveButtons />
           <MyDivider type="full" color="#d3d3d383" width={1} height={"200%"} />
           <RecentTransaction />

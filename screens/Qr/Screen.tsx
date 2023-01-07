@@ -18,7 +18,6 @@ import imageSrc from "../../assets/images/Qrcode.jpeg";
 import Layout from "../../constants/Layout";
 export default function QrScreen({}: RootTabScreenProps<"Qr">) {
   const [index, setIndex] = useState(0);
-
   return (
     <SafeAreaView style={{ backgroundColor: "#dff1ff", height: "100%" }}>
       <StatusBar style="dark" />

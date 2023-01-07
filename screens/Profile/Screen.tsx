@@ -41,7 +41,7 @@ export default function ProfileScreen({}: RootTabScreenProps<"Profile">) {
               />
             }
             RightText="Unverified"
-            Title={userData?.name}
+            Title={userData?.name ? userData?.name : "Saman Saman"}
             description={"8292-223-232"}
           />
           <View style={styles.settingsContanier}>
