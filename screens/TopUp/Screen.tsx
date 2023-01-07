@@ -11,7 +11,7 @@ import { UserData } from "../../States/User/UserData";
 
 import { RootTabScreenProps } from "../../types";
 
-export default function ProfileScreen({}: RootTabScreenProps<"Profile">) {
+export default function TopUpScreen({}: RootTabScreenProps<"TopUp">) {
   const userData = UserData((state) => state.UserData);
 
   return (

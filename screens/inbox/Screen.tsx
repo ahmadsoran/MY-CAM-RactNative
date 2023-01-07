@@ -11,7 +11,7 @@ import { UserData } from "../../States/User/UserData";
 import { RootTabScreenProps } from "../../types";
 import timeConverter from "../../util/TimeConverter";
 
-export default function InboxScreen({}: RootTabScreenProps<"Profile">) {
+export default function InboxScreen({}: RootTabScreenProps<"inbox">) {
   const userData = UserData((state) => state.UserData);
 
   return (

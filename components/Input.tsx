@@ -22,7 +22,7 @@ const MyInput = (props: Props & InputProps) => {
       inputContainerStyle={[
         styles.InputContainerStyle,
         inputContainerStyle,
-        { backgroundColor: UIcolor },
+        UIcolor && { backgroundColor: UIcolor },
       ]}
       labelStyle={[styles.labelStyle, labelStyle]}
       leftIconContainerStyle={[
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   InputContainerStyle: {
     borderBottomWidth: 0,
     paddingHorizontal: 10,
+    backgroundColor: "#f4f5f7",
     borderRadius: 10,
   },
   labelStyle: {
