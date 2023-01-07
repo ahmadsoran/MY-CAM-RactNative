@@ -19,7 +19,9 @@ export default function TopUpScreen({}: RootTabScreenProps<"TopUp">) {
       <StatusBar style="dark" />
       <ScrollView scrollEnabled fadingEdgeLength={20}>
         <View style={styles.container}>
-          <GradientCard username={userData?.name} />
+          <GradientCard
+            username={userData?.name ? userData?.name : "Saman Saman"}
+          />
           <View style={styles.content}></View>
           <MyInput
             leftIcon={<MaterialIcons name="dialpad" color="gray" size={20} />}
