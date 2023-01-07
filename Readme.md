@@ -14,4 +14,6 @@ Download [Expo GO For ios in Appstore](https://play.google.com/store/apps/detail
 **Or using this link**
 
 
-[Dirct Link](exp://exp.host/@ahmadsorann/mobile-assingment?release-channel=default)
+<a>
+exp://exp.host/@ahmadsorann/mobile-assingment?release-channel=default
+</a>
