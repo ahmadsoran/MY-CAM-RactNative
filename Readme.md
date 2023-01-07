@@ -4,7 +4,7 @@
 
 Download [Expo GO For Android in Playstore](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US&pli=1)
 
-Download [Expo GO For ios in Appstore](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US&pli=1)
+Download [Expo GO For ios in Appstore](https://apps.apple.com/us/app/expo-go/id982107779)
 
 
 **Then You Can Test App by Scaning Qr code below**
