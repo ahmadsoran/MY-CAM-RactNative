@@ -41,7 +41,7 @@ const SignIN = () => {
     if (IsLoading) {
       const timeOut = setTimeout(async () => {
         try {
-          const res = await GetFromStorage("user-credintal");
+          const res = await GetFromStorage("user-data");
           if (res) {
             setIsAccountExist(true);
           } else {
@@ -59,7 +59,7 @@ const SignIN = () => {
     }
   }, [IsLoading]);
   useEffect(() => {
-    if (!IsAccountExist) {
+    if (IsAccountExist) {
       const timeout = setTimeout(() => {
         navigate("OTP");
       }, 1000);

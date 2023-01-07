@@ -16,7 +16,11 @@ import { useEffect } from "react";
 import { UserRegisterStore } from "../../States/Auth/Signup/Inputs";
 import UserSignInStore from "../../States/Auth/SignIn/Inputs";
 import { RootStackScreenProps } from "../../types";
-export default function AuthScreen({}: RootStackScreenProps<"Auth">) {
+import Layout from "../../constants/Layout";
+export default function AuthScreen({
+  navigation,
+  route,
+}: RootStackScreenProps<"Auth">) {
   const UserAccountStatus = UserAccStatusStore((state) => state.status);
   const header = useHeaderHeight();
   /////// register inputs ////////
@@ -31,6 +35,14 @@ export default function AuthScreen({}: RootStackScreenProps<"Auth">) {
   const PasswordErr = Password?.length >= 1 && Password.length < 4;
   const PasswordSuccess = Password.length > 4;
   // --------------- end ---------------/
+  // --------------- confirm pass ---------------/
+
+  const ConfirmPassword = UserRegisterStore((state) => state.confirmPassword);
+  const ConfirmPasswordErr =
+    ConfirmPassword?.length >= 1 && ConfirmPassword.length < 4;
+  const ConfirmPasswordSuccess = ConfirmPassword.length > 4;
+  // --------------- end ---------------/
+
   // --------------- email ---------------/
   const Email = UserRegisterStore((state) => state.email);
   const EmailErr = Email.length > 0 && !Email.includes("@" && ".");
@@ -57,25 +69,35 @@ export default function AuthScreen({}: RootStackScreenProps<"Auth">) {
       PasswordErr ||
       EmailErr ||
       SginIn_PasswordErr ||
-      SginIn_UserNameErr
+      SginIn_UserNameErr ||
+      ConfirmPasswordErr
     )
       Haptic.notificationAsync(Haptic?.NotificationFeedbackType?.Error);
     else if (
       UserNameSuccess ||
       PasswordSuccess ||
+      ConfirmPasswordSuccess ||
       EmailSuccess ||
       SginIn_UserNameSuccess ||
       SginIn_PasswordSuccess
     )
       Haptic.notificationAsync(Haptic?.NotificationFeedbackType?.Success);
-  }, [Username, Password, Email, SginIn_Password, SginIn_UserName]);
-
+  }, [
+    Username,
+    Password,
+    Email,
+    SginIn_Password,
+    SginIn_UserName,
+    ConfirmPassword,
+  ]);
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "position" : "height"}
-        keyboardVerticalOffset={header}>
+        keyboardVerticalOffset={
+          Platform.OS === "ios" ? header - Layout.window.height / 20 : header
+        }>
         {UserAccountStatus === "sign-in" ? (
           <SignIN />
         ) : (
@@ -84,7 +106,7 @@ export default function AuthScreen({}: RootStackScreenProps<"Auth">) {
             stickyHeaderHiddenOnScroll={true}
             invertStickyHeaders={true}>
             <AuthHeader />
-            <AuthMain />
+            <AuthMain navigation={navigation} route={route} />
           </ScrollView>
         )}
       </KeyboardAvoidingView>

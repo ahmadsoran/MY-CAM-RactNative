@@ -11,8 +11,11 @@ import IDentify from "../../components/Auth/iDentify";
 import { ShowOnboardingStore } from "../../States/onboarding/ShowOnboarding";
 import Documentation from "../../components/Auth/Documentation";
 import { useState } from "react";
+import { RootStackScreenProps } from "../../types";
 
-const AuthMain = () => {
+const AuthMain = ({
+  navigation: { navigate },
+}: RootStackScreenProps<"Auth">) => {
   const UserRegisterData = UserRegisterStore((state) => {
     return {
       brd: state.brd,
@@ -31,13 +34,20 @@ const AuthMain = () => {
 
   const Step = ShowOnboardingStore((state) => state.setps);
   const setStep = ShowOnboardingStore((state) => state.setSteps);
+  console.log(Step);
   const UploadDataHandelr = () => {
-    if (Step === "2" && IsInvalidData) {
-      setIsError(false);
-      SetToStorage("user-data", JSON.stringify(UserRegisterData));
-      setStep("3");
-    } else {
+    console.log(IsInvalidData);
+    if (IsInvalidData) {
       setIsError(true);
+    } else {
+      if (Step === "2") {
+        setIsError(false);
+        SetToStorage("user-data", JSON.stringify(UserRegisterData));
+        setStep("3");
+      } else if (Step === "3") {
+        SetToStorage("Onboard-completed", "true");
+        navigate("Root");
+      }
     }
   };
   return (
@@ -56,7 +66,7 @@ const AuthMain = () => {
       {Step === "2" && (
         <Text style={styles.Description}>Create an account to continue!</Text>
       )}
-      {Step === "3" ? (
+      {Step !== "2" ? (
         <>
           <IDentify />
           <Documentation />

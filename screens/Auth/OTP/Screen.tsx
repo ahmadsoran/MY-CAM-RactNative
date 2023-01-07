@@ -4,11 +4,15 @@ import ForgotCredintal from "../../../components/Auth/ForgotCredintal";
 import CustomButton from "../../../components/Custom-Button";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
+import { SetToStorage } from "../../../hooks/AsyncStorage";
 import { RootStackScreenProps } from "../../../types";
 
 const OTPScreen = ({ navigation }: RootStackScreenProps<"OTP">) => {
   const { navigate } = navigation;
-
+  const SignInHandeler = () => {
+    SetToStorage("Onboard-completed", "true");
+    navigate("Root");
+  };
   return (
     <View>
       <SafeAreaView style={styles.container}>
@@ -36,7 +40,7 @@ const OTPScreen = ({ navigation }: RootStackScreenProps<"OTP">) => {
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <CustomButton text="Next" />
+          <CustomButton text="Next" onPress={SignInHandeler} />
         </View>
       </SafeAreaView>
     </View>

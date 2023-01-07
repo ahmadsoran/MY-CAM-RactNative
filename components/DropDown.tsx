@@ -41,8 +41,9 @@ export default function DropDownInput({
 
       {ShowModal && (
         <View key={id} style={styles.dropdown}>
-          {data?.map((e) => (
+          {data?.map((e, i) => (
             <CheckBox
+              key={i}
               checked={SelectedTEXT === e ? true : false}
               title={e}
               checkedIcon="dot-circle-o"

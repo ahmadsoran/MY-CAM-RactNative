@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TextStyle, View } from "react-native";
 import React from "react";
+import { ViewProps } from "./Themed";
 
 type Props = {
   type: "full" | "middle text";
@@ -7,16 +8,25 @@ type Props = {
   color: string;
   width?: number | string;
   textStyle?: TextStyle;
+  height?: string | number;
+  overflow?: "hidden";
+  CustomStyle?: ViewProps["style"];
 };
 
 const MyDivider = (props: Props) => {
-  const { type, text, color, width, textStyle } = props;
+  const { type, text, color, width, textStyle, height, overflow, CustomStyle } =
+    props;
   return (
-    <View style={styles.DivaiderContainer}>
+    <View
+      style={[
+        styles.DivaiderContainer,
+        overflow && { overflow: "hidden" },
+        CustomStyle,
+      ]}>
       <View
         style={{
           backgroundColor: color,
-          width: "100%",
+          width: height ? height : "100%",
           height: width ? width : 1,
         }}></View>
       {type === "middle text" && (
@@ -44,6 +54,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: "10%",
     position: "relative",
-    overflow: "hidden",
   },
 });
