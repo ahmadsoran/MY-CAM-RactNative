@@ -34,10 +34,10 @@ export default function QrScreen({}: RootTabScreenProps<"Qr">) {
             dense
             titleStyle={{ color: Colors.light.primary }}
             onChange={setIndex}>
-            <Tab.Item title="wolfd" />
-            <Tab.Item title="hello" />
+            <Tab.Item title="Send" />
+            <Tab.Item title="Receive" />
           </Tab>
-          <ScrollView>
+          <ScrollView scrollEnabled showsVerticalScrollIndicator={false}>
             <View
               style={[
                 styles.cameraContainer,
