@@ -46,7 +46,11 @@ export default function ProfileScreen({}: RootTabScreenProps<"Profile">) {
           />
           <View style={styles.settingsContanier}>
             <Text style={styles.SettingText}>General</Text>
-            <MyDivider type="full" color="#80808046" />
+            <MyDivider
+              type="full"
+              color="#80808046"
+              CustomStyle={{ marginBottom: 0 }}
+            />
             <UserAccount
               Icon={<Entypo name="location-pin" color="#5c4eaf" size={25} />}
               Title="Address"
@@ -68,6 +72,11 @@ export default function ProfileScreen({}: RootTabScreenProps<"Profile">) {
                   color="gray"
                 />
               }
+            />
+            <MyDivider
+              type="full"
+              color="#80808046"
+              CustomStyle={{ marginVertical: 0 }}
             />
             <UserAccount
               Icon={

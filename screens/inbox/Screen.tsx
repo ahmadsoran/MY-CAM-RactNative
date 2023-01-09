@@ -5,11 +5,10 @@ import CustomButton from "../../components/Custom-Button";
 import MyDivider from "../../components/Divider";
 import ListCard from "../../components/ListCard";
 import Colors from "../../constants/Colors";
+import Layout from "../../constants/Layout";
 import RecentTransactionList from "../../Data/RecentTransactionList";
 import { UserData } from "../../States/User/UserData";
-
 import { RootTabScreenProps } from "../../types";
-import timeConverter from "../../util/TimeConverter";
 
 export default function InboxScreen({}: RootTabScreenProps<"inbox">) {
   const userData = UserData((state) => state.UserData);
@@ -54,22 +53,24 @@ export default function InboxScreen({}: RootTabScreenProps<"inbox">) {
                 }
                 HeaderContent={
                   <View style={styles.ListTextContainer}>
-                    <Text style={styles.Username}>{data.Username}</Text>
-                    <Text style={styles.date}>{timeConverter(data.Date)}</Text>
+                    <Text style={styles.Username}>
+                      {data.Type === "recieved"
+                        ? "Money Received"
+                        : "Send Money"}
+                    </Text>
+                    {data.Type === "recieved" ? (
+                      <Text style={styles.date}>
+                        <Text style={styles.link}>{data.Username}</Text> sent
+                        you {data.Amount}$ via transfer
+                      </Text>
+                    ) : (
+                      <Text style={styles.date}>
+                        You sent {data.Amount}$ to{" "}
+                        <Text style={styles.link}>{data.Username}</Text> via
+                        transfer
+                      </Text>
+                    )}
                   </View>
-                }
-                Main={
-                  <Text
-                    numberOfLines={1}
-                    style={{
-                      fontSize: 20,
-                      color:
-                        data.Type === "recieved" ? Colors.light.primary : "red",
-                      maxWidth: 100,
-                    }}>
-                    {data.Type === "recieved" ? "+" : "-"} $
-                    {data.Amount.toLocaleString()}
-                  </Text>
                 }
               />
             ) : (
@@ -150,6 +151,7 @@ const styles = StyleSheet.create({
   date: {
     color: "black",
     opacity: 0.4,
+    maxWidth: Layout.window.width / 1.5,
   },
   RequestedButtonContainer: {
     display: "flex",
@@ -166,5 +168,8 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 5,
     backgroundColor: "#ffd7d7",
+  },
+  link: {
+    color: Colors.light.primary,
   },
 });
