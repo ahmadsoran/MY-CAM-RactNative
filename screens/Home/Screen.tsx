@@ -15,6 +15,7 @@ export default function HomeRootScreen({
   navigation: { navigate },
 }: RootTabScreenProps<"Home">) {
   const userData = UserData((state) => state.UserData);
+
   return (
     <SafeAreaView style={{ backgroundColor: "white" }}>
       <StatusBar style="dark" />

@@ -1,12 +1,11 @@
 {
   "name": "mobile-assingment-netspot",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
   "module": "es2022",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "cls && jest"
   },

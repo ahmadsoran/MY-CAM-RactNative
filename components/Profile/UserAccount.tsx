@@ -1,71 +1,30 @@
-import { StyleSheet, Text, View } from "react-native";
-
+import HorizontalList from "../Horizontal-list";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { StyleSheet } from "react-native";
 type Props = {
-  Icon?: React.ReactNode;
-  Title?: string;
-  description?: string;
-  RightText?: string | undefined;
-  EndIcon?: React.ReactNode;
+  name: string | undefined;
 };
-export default function UserAccount({
-  EndIcon,
-  Icon,
-  RightText,
-  Title,
-  description,
-}: Props) {
+export default function UserAccount({ name }: Props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.AvatarContainer}>
-        {Icon}
-        <View style={styles.textContainer}>
-          {Title && <Text style={styles.username}>{Title}</Text>}
-          {description && <Text style={styles.phone}>{description}</Text>}
-        </View>
-      </View>
-      {RightText && <Text style={styles.AccStatusText}>{RightText}</Text>}
-      {EndIcon}
-    </View>
+    <HorizontalList
+      Icon={
+        <AntDesign style={styles.avatar} name="user" color="white" size={25} />
+      }
+      EndIcon={
+        <MaterialCommunityIcons name="arrow-right" size={25} color="gray" />
+      }
+      RightText="Unverified"
+      Title={name ? name : "Saman Saman"}
+      description={"8292-223-232"}
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-    borderRadius: 15,
-    padding: "5%",
-    marginVertical: "5%",
-  },
-
-  AvatarContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-  },
-  username: {
-    color: "black",
-    fontFamily: "dm-sans-bold",
-    fontSize: 13,
-  },
-  phone: {
-    color: "gray",
-    opacity: 0.5,
-    fontSize: 10,
-  },
-  textContainer: {
-    paddingHorizontal: "4%",
-  },
-  AccStatusText: {
-    color: "orange",
-    padding: "2%",
-    borderRadius: 5,
+  avatar: {
+    backgroundColor: "#ae0bff",
+    padding: 10,
+    borderRadius: 10,
     overflow: "hidden",
-    backgroundColor: "#ffdd9ebe",
-    fontSize: 10,
   },
 });

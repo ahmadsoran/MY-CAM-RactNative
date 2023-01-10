@@ -19,6 +19,12 @@ const linking: LinkingOptions<RootStackParamList> = {
           Home: {
             screens: "Home",
           },
+          Profile: {
+            screens: "Profile",
+          },
+          inbox: { screens: "inbox" },
+          Qr: { screens: "Qr" },
+          TopUp: { screens: "TopUp" },
         },
       },
       CameraModal: "cam-modal",

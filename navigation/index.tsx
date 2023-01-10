@@ -20,6 +20,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
+import { View } from "../components/Themed";
 
 import Colors from "../constants/Colors";
 import Device from "../constants/Device";
@@ -32,6 +33,7 @@ import InboxScreen from "../screens/inbox/Screen";
 import CameraModal from "../screens/Modal/CameraModal";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import OnboardingScreen from "../screens/onboarding/Screen";
+import ProfileHeader from "../screens/Profile/Header";
 import ProfileScreen from "../screens/Profile/Screen";
 import QrScreen from "../screens/Qr/Screen";
 import TopUpScreen from "../screens/TopUp/Screen";
@@ -82,7 +84,7 @@ function RootNavigator() {
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
-        options={{ title: "Oops!" }}
+        options={{ title: "Oops!", animation: "slide_from_bottom" }}
       />
       <Stack.Screen
         name="OTP"
@@ -213,13 +215,14 @@ function BottomTabNavigator() {
           headerRight: () => (
             <Ionicons name="notifications-outline" size={30} color="gray" />
           ),
-          headerRightContainerStyle: { paddingHorizontal: 10 },
           headerStyle: {
             backgroundColor: "#f4f5f7",
           },
+
           headerShadowVisible: false,
           headerTitleAlign: "center",
           headerTitleStyle: { color: "black", fontFamily: "dm-sans-bold" },
+          header: ({ navigation }) => <ProfileHeader {...navigation} />,
         })}
       />
     </BottomTab.Navigator>
