@@ -92,7 +92,7 @@ export default function AuthScreen({
       <StatusBar style="dark" />
       {UserAccountStatus === "sign-in" ? (
         <KeyboardAvoidingView behavior={"height"} keyboardVerticalOffset={0}>
-          <ScrollView contentContainerStyle={{ height: "100%" }}>
+          <ScrollView contentContainerStyle={{ minHeight: "100%" }}>
             <SignIN />
           </ScrollView>
         </KeyboardAvoidingView>
