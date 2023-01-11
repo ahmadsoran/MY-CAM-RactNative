@@ -1,14 +1,14 @@
-import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import Colors from "../../constants/Colors";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { GetFromStorage } from "../../hooks/AsyncStorage";
 import UserAccStatusStore from "../../States/Auth/AccountStatus";
 import UserSignInStore from "../../States/Auth/SignIn/Inputs";
 import CustomButton from "../Custom-Button";
 import MyInput from "../Input";
 import { SuccesInputCheckerAnimatedIcon } from "../Succes-input-checker-animated";
+import { Text, View } from "../Themed";
 import ForgotCredintal from "./ForgotCredintal";
 
 const SignIN = () => {

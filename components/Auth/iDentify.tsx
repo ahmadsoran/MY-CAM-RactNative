@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import ImageCard from "../ImageCard";
 import right_obj_icon from "../../assets/images/left-obj.png";
 import left_obj_icon from "../../assets/images/right-obj.png";
@@ -6,11 +6,11 @@ import front_obj_icon from "../../assets/images/front-obj.png";
 import { Button } from "@rneui/themed";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Colors from "../../constants/Colors";
-import { useState } from "react";
 import { SuccesInputCheckerAnimatedIcon } from "../Succes-input-checker-animated";
 import { useNavigation } from "@react-navigation/native";
 import { imageLibraryStore } from "../../States/Modal/ImageLibarary";
 import Layout from "../../constants/Layout";
+import { Text, View } from "../Themed";
 
 const IDentify = () => {
   const ImageUrlOne = imageLibraryStore((state) => state.imageUrlOne);

@@ -38,7 +38,13 @@ export function Text(props: TextProps) {
 
   return (
     <DefaultText
-      style={[{ color, direction: isRTL ? "rtl" : "ltr" }, style]}
+      style={[
+        style,
+        {
+          direction: isRTL ? "rtl" : "ltr",
+          writingDirection: isRTL ? "rtl" : "ltr",
+        },
+      ]}
       {...otherProps}
     />
   );
@@ -53,7 +59,7 @@ export function View(props: ViewProps) {
 
   return (
     <DefaultView
-      style={[{ backgroundColor, direction: isRTL ? "rtl" : "ltr" }, style]}
+      style={[{ direction: isRTL ? "rtl" : "ltr" }, style]}
       {...otherProps}
     />
   );

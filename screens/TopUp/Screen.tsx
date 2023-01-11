@@ -1,6 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import CustomButton from "../../components/Custom-Button";
 import MyDivider from "../../components/Divider";
 import GradientCard from "../../components/Gradient-card";
@@ -9,7 +9,8 @@ import { SuccesInputCheckerAnimatedIcon } from "../../components/Succes-input-ch
 
 import { UserData } from "../../States/User/UserData";
 
-import { RootTabScreenProps } from "../../types";
+import { RootTabScreenProps } from "../../@types/Navigation";
+import { View } from "../../components/Themed";
 
 export default function TopUpScreen({}: RootTabScreenProps<"TopUp">) {
   const userData = UserData((state) => state.UserData);

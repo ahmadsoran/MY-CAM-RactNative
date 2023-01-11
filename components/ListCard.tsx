@@ -1,6 +1,6 @@
-import { Divider } from "@rneui/base";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import MyDivider from "./Divider";
+import { View } from "./Themed";
 
 type Props = {
   Avatar?: React.ReactNode;
@@ -23,6 +23,7 @@ const ListCard = ({ HeaderContent, Main, Avatar, DividerColor }: Props) => {
       <MyDivider
         type="full"
         color={DividerColor ? DividerColor : "#dadada79"}
+        CustomStyle={{ marginBottom: "2%", marginTop: "5%" }}
       />
     </>
   );

@@ -1,9 +1,10 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import { OnboardingSlide } from "../Data/onboarding-slide";
 import { MotiView } from "moti";
 import Colors from "../constants/Colors";
 import { IndicatorStore } from "../States/onboarding/indecator-index";
+import { View } from "./Themed";
 
 const OnboardIndicator = () => {
   const IndicatorIndex = IndicatorStore((state) => state.index);

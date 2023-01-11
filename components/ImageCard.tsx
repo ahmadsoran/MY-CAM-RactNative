@@ -3,13 +3,12 @@ import {
   ActivityIndicator,
   ImageSourcePropType,
   StyleSheet,
-  Text,
   TextStyle,
-  View,
   ViewStyle,
 } from "react-native";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
+import { Text, View } from "./Themed";
 
 type Props = {
   Rounded?: number;

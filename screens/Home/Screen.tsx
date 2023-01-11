@@ -1,15 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import MyDivider from "../../components/Divider";
 import GradientCard from "../../components/Gradient-card";
 import BillPay from "../../components/Home/BillPay";
 import RecentTransaction from "../../components/Home/RecentTransaction";
 import Shop from "../../components/Home/Shop";
 import SendReciveButtons from "../../components/Home/Transactions-Buttons";
-import Layout from "../../constants/Layout";
 import { UserData } from "../../States/User/UserData";
 
-import { RootTabScreenProps } from "../../types";
+import { RootTabScreenProps } from "../../@types/Navigation";
+import { View } from "../../components/Themed";
 
 export default function HomeRootScreen({
   navigation: { navigate },

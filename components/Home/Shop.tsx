@@ -1,18 +1,20 @@
 import { AntDesign } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { t } from "i18next";
+import { StyleSheet } from "react-native";
 import Colors from "../../constants/Colors";
+import { Text, View } from "../Themed";
 
 export default function Shop() {
   return (
     <View>
       <View style={styles.headerTextContainer}>
-        <Text style={styles.headerText}>Shop</Text>
-        <Text style={styles.ComingSoon}>Comeing Soon</Text>
+        <Text style={styles.headerText}>{t("Shop")}</Text>
+        <Text style={styles.ComingSoon}>{t("ComingSoon")}</Text>
       </View>
       <View style={styles.shopCardContainer}>
         <View>
-          <Text style={styles.ShopText}>Shop</Text>
-          <Text style={styles.Description}>Comeing Soon</Text>
+          <Text style={styles.ShopText}>{t("Shop")}</Text>
+          <Text style={styles.Description}>{t("ComingSoon")}</Text>
         </View>
         <AntDesign name="shoppingcart" color="white" size={50} />
       </View>

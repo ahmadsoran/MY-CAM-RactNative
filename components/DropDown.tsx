@@ -1,7 +1,6 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import { Text, View } from "./Themed";
-import { AnimatePresence, View as MotiView } from "moti";
 import UUID from "react-native-uuid";
 import { CheckBox } from "@rneui/themed";
 type Props = {

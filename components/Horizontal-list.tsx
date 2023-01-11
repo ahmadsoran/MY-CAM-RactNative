@@ -1,11 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from "react-native";
+import { StyleSheet, TouchableOpacity, ViewStyle } from "react-native";
+import { Text, View } from "./Themed";
 
 type Props = {
   Icon?: React.ReactNode;
@@ -14,6 +9,7 @@ type Props = {
   RightText?: string | undefined;
   EndIcon?: React.ReactNode;
   CustomStyle?: ViewStyle;
+  onPress?(): void;
 };
 export default function HorizontalList({
   EndIcon,
@@ -22,10 +18,11 @@ export default function HorizontalList({
   Title,
   description,
   CustomStyle,
+  onPress,
 }: Props) {
   const { navigate } = useNavigation();
   return (
-    <TouchableOpacity activeOpacity={0.6} onPress={() => navigate("NotFound")}>
+    <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
       <View style={[styles.container, CustomStyle && CustomStyle]}>
         <View style={styles.AvatarContainer}>
           {Icon}

@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { Button, Image, Tab, TabView } from "@rneui/themed";
+import { Button, Image, Tab } from "@rneui/themed";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import {
@@ -7,15 +7,14 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  View,
 } from "react-native";
 import CustomButton from "../../components/Custom-Button";
 import ScreenSheet from "../../components/ScreenSheet";
-import { Text } from "../../components/Themed";
 import Colors from "../../constants/Colors";
-import { RootTabScreenProps } from "../../types";
+import { RootTabScreenProps } from "../../@types/Navigation";
 import imageSrc from "../../assets/images/Qrcode.jpeg";
 import Layout from "../../constants/Layout";
+import { View } from "../../components/Themed";
 export default function QrScreen({}: RootTabScreenProps<"Qr">) {
   const [index, setIndex] = useState(0);
   return (

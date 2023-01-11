@@ -1,17 +1,20 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import CustomButton from "../Custom-Button";
 import { TransactionButtons } from "../../Data/TransactionButtons";
 import Layout from "../../constants/Layout";
+import { View } from "../Themed";
+import { useTranslation } from "react-i18next";
 
 const SendReciveButtons = () => {
+  const { t } = useTranslation();
   return (
     <View style={styles.Send_ReciveContainer}>
       {TransactionButtons?.map((btn, i) => (
         <CustomButton
           key={i}
           ExtraButtonStyle={styles.Send_ReciveButton}
-          title={btn.name}
+          title={t(btn.name) || ""}
           bg={btn.bg}
           icon={btn.Icon}
           iconPosition={btn.position}
@@ -40,11 +43,14 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     flexDirection: "row",
     flexWrap: "wrap",
+    marginTop: "2%",
   },
   Send_ReciveButton: {
     paddingVertical: "15%",
+    height: 70,
   },
   Send_ReciveButtonContanier: {
     marginVertical: "2%",
+    borderRadius: 10,
   },
 });

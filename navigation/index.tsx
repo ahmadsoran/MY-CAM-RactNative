@@ -42,8 +42,9 @@ import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
-} from "../types";
+} from "../@types/Navigation";
 import LinkingConfiguration from "./LinkingConfiguration";
+import { t } from "i18next";
 
 export default function Navigation({
   colorScheme,
@@ -126,10 +127,9 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: Colors.light.primary,
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
-          height: Device.isIOS
-            ? Layout.window.height / 8
-            : Layout.window.height / 9,
-          backgroundColor: "white",
+          height: 80,
+          backgroundColor: "#ffffff",
+          elevation: 80,
         },
         tabBarItemStyle: {
           margin: 5,
@@ -140,7 +140,7 @@ function BottomTabNavigator() {
         component={HomeRootScreen}
         options={({ navigation }: RootTabScreenProps<"Home">) => ({
           tabBarIcon: ({ color }) => (
-            <AntDesign name="home" size={29} color={color} />
+            <AntDesign name="home" size={30} color={color} />
           ),
           headerShown: false,
           headerTransparent: true,
@@ -148,6 +148,7 @@ function BottomTabNavigator() {
             fontFamily: "dm-sans-bold",
             fontSize: 13,
           },
+          title: t("Home") || "",
         })}
       />
       <BottomTab.Screen
@@ -155,7 +156,7 @@ function BottomTabNavigator() {
         component={TopUpScreen}
         options={({ navigation }: RootTabScreenProps<"TopUp">) => ({
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="money-check-alt" size={29} color={color} />
+            <FontAwesome5 name="money-check-alt" size={30} color={color} />
           ),
           headerShown: false,
           headerTransparent: true,
@@ -163,6 +164,7 @@ function BottomTabNavigator() {
             fontFamily: "dm-sans-bold",
             fontSize: 13,
           },
+          title: t("TopUp") || "",
         })}
       />
       <BottomTab.Screen
@@ -172,7 +174,7 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="qrcode-scan"
-              size={29}
+              size={30}
               color="white"
             />
           ),
@@ -191,7 +193,7 @@ function BottomTabNavigator() {
         component={InboxScreen}
         options={({ navigation }: RootTabScreenProps<"inbox">) => ({
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="notifications-none" size={29} color={color} />
+            <MaterialIcons name="notifications-none" size={30} color={color} />
           ),
           headerShown: false,
           headerTransparent: true,
@@ -199,15 +201,17 @@ function BottomTabNavigator() {
             fontFamily: "dm-sans-bold",
             fontSize: 13,
           },
+          title: t("Inbox") || "",
         })}
       />
       <BottomTab.Screen
-        name="Profile"
+        name={"Profile"}
         component={ProfileScreen}
         options={({ navigation }: RootTabScreenProps<"Profile">) => ({
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="user-circle-o" size={29} color={color} />
+            <FontAwesome name="user-circle-o" size={30} color={color} />
           ),
+          title: t("Proﬁle") || "",
           tabBarLabelStyle: {
             fontFamily: "dm-sans-bold",
             fontSize: 13,

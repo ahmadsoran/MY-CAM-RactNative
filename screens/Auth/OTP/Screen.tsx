@@ -1,11 +1,12 @@
 import OTPInputView from "@twotalltotems/react-native-otp-input";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import ForgotCredintal from "../../../components/Auth/ForgotCredintal";
 import CustomButton from "../../../components/Custom-Button";
 import Colors from "../../../constants/Colors";
 import Layout from "../../../constants/Layout";
 import { SetToStorage } from "../../../hooks/AsyncStorage";
-import { RootStackScreenProps } from "../../../types";
+import { RootStackScreenProps } from "../../../@types/Navigation";
+import { Text, View } from "../../../components/Themed";
 
 const OTPScreen = ({ navigation }: RootStackScreenProps<"OTP">) => {
   const { navigate } = navigation;

@@ -1,9 +1,5 @@
 import { TransactionButtonsType } from "../@types/TransactionButtons";
-import {
-  FontAwesome5,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import Layout from "../constants/Layout";
 
@@ -44,7 +40,6 @@ export const TransactionButtons: TransactionButtonsType[] = [
         name="attach-money"
         size={30}
         color={Colors.light.primary}
-        style={{ marginVertical: 5 }}
       />
     ),
     bg: "whitesmoke",
@@ -52,14 +47,13 @@ export const TransactionButtons: TransactionButtonsType[] = [
     width: Layout.window.width / 3.9,
   },
   {
-    name: "Deposit",
+    name: "Withdraw",
     position: "top",
     Icon: (
       <MaterialIcons
         name="attach-money"
         size={30}
         color={Colors.light.primary}
-        style={{ marginVertical: 5 }}
       />
     ),
     bg: "whitesmoke",
@@ -70,12 +64,7 @@ export const TransactionButtons: TransactionButtonsType[] = [
     name: "History",
     position: "top",
     Icon: (
-      <MaterialIcons
-        name="history"
-        size={30}
-        color={Colors.light.primary}
-        style={{ marginVertical: 5 }}
-      />
+      <MaterialIcons name="history" size={30} color={Colors.light.primary} />
     ),
     bg: "whitesmoke",
     textColor: "black",

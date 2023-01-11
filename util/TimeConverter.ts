@@ -15,7 +15,7 @@ export default function timeConverter(UNIX_timestamp: number) {
     "Dec",
   ];
   const year = a.getFullYear();
-  const month = months[a.getMonth() - 1];
+  const month = months[a.getMonth()];
   const date = a.getDate();
   const time = `${date}/${month}/${year}`;
   return time;

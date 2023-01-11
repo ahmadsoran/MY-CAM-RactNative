@@ -10,9 +10,26 @@ import {
 } from "@expo/vector-icons";
 import Colors from "../../constants/Colors";
 import { Text, View } from "../Themed";
-import { StyleSheet } from "react-native";
+import { I18nManager, StyleSheet } from "react-native";
+import UserLanguageStore, {
+  languages,
+} from "../../States/App-settings/Language";
+import { SetToStorage } from "../../hooks/AsyncStorage";
+import { useTranslation } from "react-i18next";
+import RNRestart from "react-native-restart";
 
 const UserSettingsList = () => {
+  const { i18n } = useTranslation();
+  function ChangeLanguageHandler(lng: languages) {
+    setUserLanguage(lng);
+    i18n.changeLanguage(lng);
+    SetToStorage("lng", lng);
+    I18nManager.forceRTL(lng === "en" ? false : true);
+    RNRestart.Restart();
+  }
+
+  const UserLanguage = UserLanguageStore((state) => state.lng);
+  const setUserLanguage = UserLanguageStore((state) => state.setLng);
   return (
     <>
       <View style={styles.settingsContanier}>
@@ -67,6 +84,15 @@ const UserSettingsList = () => {
         }
         Title={"Help Center"}
         CustomStyle={{ marginVertical: 0, paddingVertical: "5%" }}
+      />
+      <HorizontalList
+        Icon={<Ionicons name="language-outline" color="gray" size={25} />}
+        EndIcon={<Text>{UserLanguage}</Text>}
+        Title={"Language"}
+        CustomStyle={{ marginTop: 15, paddingVertical: "5%" }}
+        onPress={() =>
+          ChangeLanguageHandler(UserLanguage === "ar" ? "en" : "ar")
+        }
       />
     </>
   );

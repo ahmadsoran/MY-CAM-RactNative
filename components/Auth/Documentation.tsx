@@ -1,18 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React, { useState } from "react";
-import {
-  AntDesign,
-  Entypo,
-  Fontisto,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { AntDesign, Entypo } from "@expo/vector-icons";
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
-import CustomButton from "../Custom-Button";
 import MyDivider from "../Divider";
 import pickImageAsync from "../../util/ImagePicker";
 import { Button } from "@rneui/themed";
 import { SuccesInputCheckerAnimatedIcon } from "../Succes-input-checker-animated";
+import { Text, View } from "../Themed";
 
 const Documentation = () => {
   const [Documents, setDocuments] = useState({

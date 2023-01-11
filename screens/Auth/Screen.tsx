@@ -4,7 +4,6 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  View,
 } from "react-native";
 import SignIN from "../../components/Auth/Sign-in";
 import UserAccStatusStore from "../../States/Auth/AccountStatus";
@@ -15,8 +14,9 @@ import * as Haptic from "expo-haptics";
 import { useEffect } from "react";
 import { UserRegisterStore } from "../../States/Auth/Signup/Inputs";
 import UserSignInStore from "../../States/Auth/SignIn/Inputs";
-import { RootStackScreenProps } from "../../types";
+import { RootStackScreenProps } from "../../@types/Navigation";
 import Layout from "../../constants/Layout";
+import { View } from "../../components/Themed";
 export default function AuthScreen({
   navigation,
   route,
@@ -99,7 +99,9 @@ export default function AuthScreen({
           Platform.OS === "ios" ? header - Layout.window.height / 20 : header
         }>
         {UserAccountStatus === "sign-in" ? (
-          <SignIN />
+          <ScrollView>
+            <SignIN />
+          </ScrollView>
         ) : (
           <ScrollView
             stickyHeaderIndices={[0]}

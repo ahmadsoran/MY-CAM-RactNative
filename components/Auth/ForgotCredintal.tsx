@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import Colors from "../../constants/Colors";
+import { Text, View } from "../Themed";
 
 type Props = {
   Title: string;

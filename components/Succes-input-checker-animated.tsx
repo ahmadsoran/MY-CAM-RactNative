@@ -1,4 +1,4 @@
-import { AnimatePresence, View } from "moti";
+import { View } from "moti";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import { useId } from "react";

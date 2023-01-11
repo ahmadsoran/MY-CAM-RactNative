@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TextStyle, View } from "react-native";
+import { StyleSheet, TextStyle } from "react-native";
 import React from "react";
-import { ViewProps } from "./Themed";
+import { Text, View, ViewProps } from "./Themed";
 
 type Props = {
   type: "full" | "middle text";

@@ -1,7 +1,8 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import Colors from "../constants/Colors";
 import { Avatar } from "@rneui/themed";
 import { ScreenSheetProps } from "../@types/ScreenSheet";
+import { View } from "./Themed";
 
 export default function ScreenSheet(Props: ScreenSheetProps) {
   const { AvatarImage, children, FooterComponents, icon } = Props;

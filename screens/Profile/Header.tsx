@@ -1,8 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { ParamListBase, useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { RootTabParamList, RootTabScreenProps } from "../../types";
+import { ParamListBase } from "@react-navigation/native";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View } from "../../components/Themed";
 
 const ProfileHeader = ({
   navigate,

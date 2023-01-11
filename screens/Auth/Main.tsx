@@ -11,7 +11,7 @@ import IDentify from "../../components/Auth/iDentify";
 import { ShowOnboardingStore } from "../../States/onboarding/ShowOnboarding";
 import Documentation from "../../components/Auth/Documentation";
 import { useState } from "react";
-import { RootStackScreenProps } from "../../types";
+import { RootStackScreenProps } from "../../@types/Navigation";
 
 const AuthMain = ({
   navigation: { navigate },
