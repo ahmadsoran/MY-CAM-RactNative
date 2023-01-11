@@ -97,8 +97,13 @@ const UserSettingsList = () => {
       />
       <HorizontalList
         Icon={<Ionicons name="trash-outline" color="red" size={25} />}
-        Title={"Reset Default"}
-        onPress={() => AsyncStorage.clear().then(() => RNRestart.Restart())}
+        Title={"Clear data"}
+        onPress={() =>
+          AsyncStorage.clear().then(() => {
+            RNRestart.Restart();
+            I18nManager.forceRTL(false);
+          })
+        }
       />
     </>
   );

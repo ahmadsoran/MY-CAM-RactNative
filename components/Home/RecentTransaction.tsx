@@ -38,7 +38,11 @@ const RecentTransaction = () => {
             <View style={styles.ListTextContainer}>
               <Text style={styles.Username}>{data.Username}</Text>
               <Text style={styles.date}>
-                {timeConverter(data.Date, Layout.isRTL ? "rtl" : "ltr")}
+                {timeConverter(
+                  data.Date,
+                  Layout.isRTL ? "rtl" : "ltr",
+                  "Space"
+                )}
               </Text>
             </View>
           }

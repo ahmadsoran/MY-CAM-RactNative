@@ -14,7 +14,7 @@ export default function DatePickerInput() {
   const [ShowDate, setShowDate] = useState(false);
   const DatePickerHandler = (e: number) => {
     if (e) {
-      setBrd(timeConverter(e, Layout.isRTL ? "rtl" : "ltr"));
+      setBrd(timeConverter(e, Layout.isRTL ? "rtl" : "ltr", "slash"));
     }
   };
   const ShowDateHandler = () => {
