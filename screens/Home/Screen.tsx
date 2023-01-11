@@ -19,7 +19,7 @@ export default function HomeRootScreen({
   return (
     <SafeAreaView style={{ backgroundColor: "white" }}>
       <StatusBar style="dark" />
-      <ScrollView scrollEnabled fadingEdgeLength={20}>
+      <ScrollView scrollEnabled>
         <View style={styles.container}>
           <GradientCard
             username={userData?.name ? userData?.name : "Saman Saman"}

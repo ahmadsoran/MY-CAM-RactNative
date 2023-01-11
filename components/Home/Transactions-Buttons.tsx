@@ -24,9 +24,13 @@ const SendReciveButtons = () => {
             { width: btn.width },
           ]}
           titleStyle={{
-            fontSize: Layout.window.width / 25,
+            fontSize:
+              typeof btn?.width === "string"
+                ? Layout.window.width - 0.96 * Layout.window.width
+                : Layout.window.width - 0.97 * Layout.window.width,
             color: btn.textColor,
             marginHorizontal: btn.position === "left" ? 10 : 0,
+            fontFamily: "dm-sans",
           }}
         />
       ))}

@@ -15,8 +15,14 @@ import { RootTabScreenProps } from "../../@types/Navigation";
 import imageSrc from "../../assets/images/Qrcode.jpeg";
 import Layout from "../../constants/Layout";
 import { View } from "../../components/Themed";
+import MyTabs from "../../components/QR/Tabs";
+
 export default function QrScreen({}: RootTabScreenProps<"Qr">) {
+  function IndexHandelr(e: number) {
+    setIndex(e);
+  }
   const [index, setIndex] = useState(0);
+  console.log(index);
   return (
     <SafeAreaView style={{ backgroundColor: "#dff1ff", height: "100%" }}>
       <StatusBar style="dark" />
@@ -24,18 +30,12 @@ export default function QrScreen({}: RootTabScreenProps<"Qr">) {
         <ScreenSheet
           icon={
             <MaterialIcons name="qr-code-scanner" size={40} color="white" />
-          }
-          FooterComponents={<CustomButton text="Enter Manually" />}>
-          <Tab
-            value={index}
-            indicatorStyle={{ backgroundColor: Colors.light.primary }}
-            dense
-            titleStyle={{ color: Colors.light.primary }}
-            onChange={setIndex}>
-            <Tab.Item title="Send" />
-            <Tab.Item title="Receive" />
-          </Tab>
-          <ScrollView scrollEnabled showsVerticalScrollIndicator={false}>
+          }>
+          <MyTabs onChange={IndexHandelr} index={index} />
+          <ScrollView
+            style={{ top: "-10%", height: "110%" }}
+            scrollEnabled
+            showsVerticalScrollIndicator={false}>
             <View
               style={[
                 styles.cameraContainer,
@@ -87,5 +87,10 @@ const styles = StyleSheet.create({
   },
   cameraContainer: {
     padding: "10%",
+  },
+  tabs: {
+    transform: [{ translateY: -40 }],
+    direction: "rtl",
+    zIndex: 999,
   },
 });

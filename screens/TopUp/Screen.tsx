@@ -18,7 +18,7 @@ export default function TopUpScreen({}: RootTabScreenProps<"TopUp">) {
   return (
     <SafeAreaView style={{ backgroundColor: "white", height: "100%" }}>
       <StatusBar style="dark" />
-      <ScrollView scrollEnabled fadingEdgeLength={20}>
+      <ScrollView scrollEnabled>
         <View style={styles.container}>
           <GradientCard
             username={userData?.name ? userData?.name : "Saman Saman"}

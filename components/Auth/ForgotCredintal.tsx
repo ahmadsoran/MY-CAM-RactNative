@@ -1,17 +1,18 @@
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ViewStyle } from "react-native";
 import Colors from "../../constants/Colors";
 import { Text, View } from "../Themed";
 
 type Props = {
   Title: string;
   description: string;
+  style?: ViewStyle;
 };
 
-const ForgotCredintal = ({ Title, description }: Props) => {
+const ForgotCredintal = ({ Title, description, style }: Props) => {
   return (
     <>
-      <View style={styles.HeaderContainer}>
+      <View style={[styles.HeaderContainer, style]}>
         <Ionicons
           name="wallet-outline"
           color={Colors.light.primary}
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: "7%",
+    paddingVertical: "20%",
   },
   HeaderText: {
     color: "black",

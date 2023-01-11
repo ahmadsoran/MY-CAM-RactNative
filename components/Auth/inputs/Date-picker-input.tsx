@@ -6,6 +6,7 @@ import { useState } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Colors from "../../../constants/Colors";
 import { Text, View } from "../../Themed";
+import Layout from "../../../constants/Layout";
 
 export default function DatePickerInput() {
   const setBrd = UserRegisterStore((state) => state.setBrd);
@@ -13,7 +14,7 @@ export default function DatePickerInput() {
   const [ShowDate, setShowDate] = useState(false);
   const DatePickerHandler = (e: number) => {
     if (e) {
-      setBrd(timeConverter(e));
+      setBrd(timeConverter(e, Layout.isRTL ? "rtl" : "ltr"));
     }
   };
   const ShowDateHandler = () => {

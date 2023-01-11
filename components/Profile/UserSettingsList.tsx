@@ -17,6 +17,7 @@ import UserLanguageStore, {
 import { SetToStorage } from "../../hooks/AsyncStorage";
 import { useTranslation } from "react-i18next";
 import RNRestart from "react-native-restart";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const UserSettingsList = () => {
   const { i18n } = useTranslation();
@@ -93,6 +94,11 @@ const UserSettingsList = () => {
         onPress={() =>
           ChangeLanguageHandler(UserLanguage === "ar" ? "en" : "ar")
         }
+      />
+      <HorizontalList
+        Icon={<Ionicons name="trash-outline" color="red" size={25} />}
+        Title={"Reset Default"}
+        onPress={() => AsyncStorage.clear().then(() => RNRestart.Restart())}
       />
     </>
   );

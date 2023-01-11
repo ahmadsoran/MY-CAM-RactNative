@@ -2,6 +2,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { t } from "i18next";
 import { StyleSheet } from "react-native";
 import Colors from "../../constants/Colors";
+import Layout from "../../constants/Layout";
 import RecentTransactionList from "../../Data/RecentTransactionList";
 import timeConverter from "../../util/TimeConverter";
 import ListCard from "../ListCard";
@@ -36,7 +37,9 @@ const RecentTransaction = () => {
           HeaderContent={
             <View style={styles.ListTextContainer}>
               <Text style={styles.Username}>{data.Username}</Text>
-              <Text style={styles.date}>{timeConverter(data.Date)}</Text>
+              <Text style={styles.date}>
+                {timeConverter(data.Date, Layout.isRTL ? "rtl" : "ltr")}
+              </Text>
             </View>
           }
           Main={

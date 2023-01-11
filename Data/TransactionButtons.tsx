@@ -19,7 +19,7 @@ export const TransactionButtons: TransactionButtonsType[] = [
     textColor: Colors.light.primary,
   },
   {
-    name: "Recieve",
+    name: "Receive",
     position: "left",
     Icon: (
       <MaterialCommunityIcons

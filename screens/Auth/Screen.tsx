@@ -9,20 +9,17 @@ import SignIN from "../../components/Auth/Sign-in";
 import UserAccStatusStore from "../../States/Auth/AccountStatus";
 import AuthHeader from "./Header";
 import AuthMain from "./Main";
-import { useHeaderHeight } from "@react-navigation/elements";
 import * as Haptic from "expo-haptics";
 import { useEffect } from "react";
 import { UserRegisterStore } from "../../States/Auth/Signup/Inputs";
 import UserSignInStore from "../../States/Auth/SignIn/Inputs";
 import { RootStackScreenProps } from "../../@types/Navigation";
-import Layout from "../../constants/Layout";
 import { View } from "../../components/Themed";
 export default function AuthScreen({
   navigation,
   route,
 }: RootStackScreenProps<"Auth">) {
   const UserAccountStatus = UserAccStatusStore((state) => state.status);
-  const header = useHeaderHeight();
   /////// register inputs ////////
   // --------------- username ---------------/
 
@@ -93,16 +90,14 @@ export default function AuthScreen({
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "position" : "height"}
-        keyboardVerticalOffset={
-          Platform.OS === "ios" ? header - Layout.window.height / 20 : header
-        }>
-        {UserAccountStatus === "sign-in" ? (
-          <ScrollView>
+      {UserAccountStatus === "sign-in" ? (
+        <KeyboardAvoidingView behavior={"height"} keyboardVerticalOffset={0}>
+          <ScrollView contentContainerStyle={{ height: "100%" }}>
             <SignIN />
           </ScrollView>
-        ) : (
+        </KeyboardAvoidingView>
+      ) : (
+        <KeyboardAvoidingView behavior={"height"} keyboardVerticalOffset={0}>
           <ScrollView
             stickyHeaderIndices={[0]}
             stickyHeaderHiddenOnScroll={true}
@@ -110,8 +105,8 @@ export default function AuthScreen({
             <AuthHeader />
             <AuthMain navigation={navigation} route={route} />
           </ScrollView>
-        )}
-      </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      )}
     </View>
   );
 }

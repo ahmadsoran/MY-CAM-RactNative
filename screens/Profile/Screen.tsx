@@ -12,7 +12,7 @@ export default function ProfileScreen({}: RootTabScreenProps<"Profile">) {
   return (
     <SafeAreaView style={{ backgroundColor: "#f4f5f7" }}>
       <StatusBar style="dark" />
-      <ScrollView scrollEnabled fadingEdgeLength={20}>
+      <ScrollView scrollEnabled>
         <View style={styles.container}>
           <UserAccount name={userData?.name} />
           <UserSettingsList />
