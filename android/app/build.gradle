@@ -141,6 +141,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+  
     defaultConfig {
         applicationId 'com.ahmadsorann.mobileassingment'
         minSdkVersion rootProject.ext.minSdkVersion

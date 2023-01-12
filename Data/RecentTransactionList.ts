@@ -1,5 +1,5 @@
 import { TransactionList } from "../@types/TransactionList";
-
+// ignore-prretier
 const RecentTransactionList: TransactionList[] = [
   {
     Username: "Ahmed Soran",
@@ -10,7 +10,7 @@ const RecentTransactionList: TransactionList[] = [
   {
     Username: "Sleman Halshoy",
     Date: new Date(2023, 0, 13).getTime(),
-    Amount: 3_000,
+    Amount: 3000,
     Type: "send",
   },
   {
@@ -22,7 +22,7 @@ const RecentTransactionList: TransactionList[] = [
   {
     Username: "Trump",
     Date: new Date(2022, 1, 8).getTime(),
-    Amount: 1_000,
+    Amount: 1000,
     Type: "recieved",
   },
   {
