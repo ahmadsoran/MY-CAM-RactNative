@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 import ImageCard from "../ImageCard";
-import right_obj_icon from "../../assets/images/left-obj.png";
-import left_obj_icon from "../../assets/images/right-obj.png";
-import front_obj_icon from "../../assets/images/front-obj.png";
+import right_obj_icon from "../../assets/images/left-obj.jpg";
+import left_obj_icon from "../../assets/images/right-obj.jpg";
+import front_obj_icon from "../../assets/images/front-obj.jpg";
 import { Button } from "@rneui/themed";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Colors from "../../constants/Colors";
